@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html>
+<link rel="icon" type="image/png" href="ExploreX.png" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" type="image/png" href="LogoX.png" />
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ExploreX--Trip Planner</title>
+
+    <!-- 
+
+Sentra Template
+
+https://templatemo.com/tm-518-sentra
+
+-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/fontAwesome.css">
+    <link rel="stylesheet" href="css/light-box.css">
+    <link rel="stylesheet" href="css/owl-carousel.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+
+<body>
+
+
+
+    <header class="nav-down responsive-nav hidden-lg hidden-md">
+        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        <!-- Top Travel Navbar -->
+        <div class="top-travel-navbar">
+
+            <a href="flight.html">Flight</a>
+            <a href="hotel.html">Hotel</a>
+            <a href="cruise.html">Cruise</a>
+            <a href="train.html">Train</a>
+            <a href="cab.html">Cab</a>
+            <a href="bus.html">Bus</a>
+
+        </div>
+        <!--/.navbar-header-->
+        <div id="main-nav" class="collapse navbar-collapse">
+            <nav>
+                <ul class="nav navbar-nav">
+                    <li><a href="#top">Home</a></li>
+                    <li><a href="#featured">Famous Highlights</a></li>
+                    <li><a href="#projects">Scenario</a></li>
+                    <li><a href="#video">Tour</a></li>
+                    <li><a href="#blog">Blog Entries</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Top Booking Navbar -->
+    <div class="top-navbar">
+        <a href="flight.html">✈ Flight</a>
+        <a href="hotel.html">🏨 Hotel</a>
+        <a href="cruise.html">🛳 Cruise</a>
+        <a href="train.html">🚆 Train</a>
+        <a href="cab.html">🚖 Cab</a>
+        <a href="bus.html">🚌 Bus</a>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar-navigation hidden-sm hidden-xs" id="sidebar">
+        <div class="logo">
+            <a href="Explo.html">EX.<em>AI</em></a>
+        </div>
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="#top">
+                        <span class="rect"></span>
+                        <span class="circle"></span> Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#featured">
+                        <span class="rect"></span>
+                        <span class="circle"></span> Famous Highlights
+                    </a>
+                </li>
+                <li>
+                    <a href="#projects">
+                        <span class="rect"></span>
+                        <span class="circle"></span> Scenario
+                    </a>
+                </li>
+                <li>
+                    <a href="#blog">
+                        <span class="rect"></span>
+                        <span class="circle"></span> Resorts & Hotels
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact">
+                        <span class="rect"></span>
+                        <span class="circle"></span> Contact Us
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Plan Your Trip button at bottom -->
+
+
+        <div class="plan-btn-container">
+            <a href="plan.html" class="plan-btn">Plan Your Trip</a>
+        </div>
+    </div>
+
+    <!-- Toggle Button (for mobile) -->
+    <div class="menu-toggle" id="menu-toggle">
+        ☰
+    </div>
+
+    <style>
+        @media (min-width: 992px) {
+            .slider,
+            .page-content,
+            footer,
+            .footer {
+                margin-left: 230px;
+                /* SAME as sidebar width */
+                width: calc(100% - 230px);
+            }
+        }
+        /* Mobile: no sidebar push */
+        
+        @media (max-width: 991px) {
+            .slider,
+            .page-content,
+            footer,
+            .footer {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+        /* Sidebar Styling */
+        
+        .sidebar-navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 230px;
+            height: 100%;
+            background: #003580;
+            color: #fff;
+            padding-top: 20px;
+            transition: transform 0.3s ease-in-out;
+            z-index: 1000;
+        }
+        /* Hide sidebar on small screens */
+        
+        .sidebar-navigation.closed {
+            transform: translateX(-100%);
+        }
+        /* Sidebar Links */
+        
+        .sidebar-navigation nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .sidebar-navigation nav ul li {
+            padding: 15px;
+        }
+        
+        .sidebar-navigation nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        /* Plan Button Fixed at Bottom */
+        
+        .sidebar {
+            position: relative;
+            background: #eefa02;
+            height: 100vh;
+        }
+        
+        .ExploreX-button button:hover {
+            background-color: #e68900;
+        }
+        /* Menu Toggle (Mobile) */
+        
+        .menu-toggle {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            font-size: 28px;
+            color: #003580;
+            cursor: pointer;
+            display: none;
+            z-index: 1100;
+        }
+        /* Responsive */
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .sidebar-navigation {
+                transform: translateX(-100%);
+            }
+            .sidebar-navigation.open {
+                transform: translateX(0);
+            }
+        }
+        /* Top Travel Navbar */
+        
+        .top-travel-navbar {
+            position: fixed;
+            top: 0;
+            left: 230px;
+            /* same as sidebar width */
+            width: calc(100% - 230px);
+            background: #002b5c;
+            padding: 10px 20px;
+            z-index: 1200;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+        
+        .top-travel-navbar a {
+            color: red;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        
+        .top-travel-navbar a:hover {
+            color: #ffcc00;
+            transform: scale(1.05);
+        }
+        
+        .slider {
+            margin-top: 50px;
+        }
+        /* ===== TOP NAVBAR ===== */
+        
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 230px;
+            /* sidebar width */
+            width: calc(100% - 230px);
+            height: 55px;
+            background: #002f6c;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding-left: 25px;
+            z-index: 2000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .top-navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        .top-navbar a:hover {
+            color: #ffd700;
+        }
+        /* Move slider down so navbar doesn't cover it */
+        
+        .slider {
+            margin-top: 55px;
+        }
+        /* Mobile Fix */
+        
+        @media(max-width:991px) {
+            .top-navbar {
+                left: 0;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                height: auto;
+                padding: 10px;
+            }
+            .slider {
+                margin-top: 80px;
+            }
+        }
+    </style>
+
+    <script>
+        // Toggle Sidebar on Mobile
+        const menuToggle = document.getElementById("menu-toggle");
+        const sidebar = document.getElementById("sidebar");
+
+        menuToggle.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+        });
+    </script>
+
+
+
+    <div class="slider">
+        <div class="Modern-Slider content-section" id="top">
+            <!-- Item -->
+            <div class="item item-1">
+                <div class="img-fill">
+                    <div class="image"></div>
+                    <div class="info">
+                        <div>
+                            <h1>Himalayas<br>India</h1>
+                            <p>The Himalayas are the highest mountain range in the world, stretching across five countries: India, Nepal, Bhutan, China, and Pakistan. <br> Plan Your Trip With PlanKar</p>
+                            <div class="white-button button">
+                                <a href="#featured">Discover More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // Item -->
+            <!-- Item -->
+            <div class="item item-2">
+                <div class="img-fill">
+                    <div class="image"></div>
+                    <div class="info">
+                        <div>
+                            <h1>GOA <br>Pearl of the Orient</h1>
+                            <p>Goa is a vibrant coastal state of India, famous for its beaches, nightlife, and Portuguese heritage.
+                                <br>Visit Today</p>
+
+                            <div class="white-button button">
+                                <a href="#featured">Share More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // Item -->
+            <!-- Item -->
+            <div class="item item-3">
+                <div class="img-fill">
+                    <div class="image"></div>
+                    <div class="info">
+                        <div>
+                            <h1>East India<br>Scotland of the East</h1>
+                            <p>East India, often called the “Paradise Unexplored,” is known for its rich culture, lush landscapes, and the famous Seven Sisters states. <br>Explore Nows.</p>
+
+                            <div class="white-button button">
+                                <a href="#featured">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // Item -->
+        </div>
+    </div>
+
+
+    <div class="page-content">
+        <section id="featured" class="content-section">
+            <div class="section-heading">
+                <h1>Famous<br><em>Highlight</em></h1>
+                <p>Here’s a list of famous monuments (gems) from all over the world
+                </p>
+            </div>
+            <div class="section-content">
+                <div class="owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="image">
+                            <img src="img/Rio.jpg" alt="">
+                            <div class="featured-button button">
+                                <a href="#projects">Continue Reading</a>
+                            </div>
+                        </div>
+                        <div class="text-content">
+                            <h4>Rio de Janeiro, Brazil</h4>
+                            <span>Christ the Redeemer</span>
+                            <p>The famous statue in Rio de Janeiro is <strong>Christ the Redeemer (Cristo Redentor)</strong>, a 98-foot-tall statue of Jesus Christ standing atop Mount Corcovado.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="img/sou.jpg" alt="">
+                            <div class="featured-button button">
+                                <a href="#projects">Continue Reading</a>
+                            </div>
+                        </div>
+                        <div class="text-content">
+                            <h4>New York, USA</h4>
+                            <span>Statue of Liberty</span>
+                            <p>The <strong>Statue of Liberty</strong> is a colossal neoclassical sculpture located on Liberty Island in New York Harbor, USA, symbolizing freedom and democracy.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="img/tajmahal.jpg" alt="">
+                            <div class="featured-button button">
+                                <a href="#projects">Continue Reading</a>
+                            </div>
+                        </div>
+                        <div class="text-content">
+                            <h4>Agra, India</h4>
+                            <span>Taj Mahal</span>
+                            <p>The <strong>Taj Mahal</strong> Agra, India, is a white marble mausoleum built by Mughal Emperor Shah Jahan in memory of his wife Mumtaz Mahal, and it is celebrated as a symbol of eternal love.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="img/goi.jpg" alt="">
+                            <div class="featured-button button">
+                                <a href="#projects">Continue Reading</a>
+                            </div>
+                        </div>
+                        <div class="text-content">
+                            <h4>Dehli, India</h4>
+                            <span>India Gate</span>
+                            <p>India Gate is a war memorial in New Delhi built to honor Indian soldiers who died in World War 1.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="img/paris.jpg" alt="">
+                            <div class="featured-button button">
+                                <a href="#projects">Continue Reading</a>
+                            </div>
+                        </div>
+                        <div class="text-content">
+                            <h4>Paris, France</h4>
+                            <span>Eiffel Tower</span>
+                            <p>The Eiffel Tower in Paris is a world-famous iron landmark and symbol of France</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="img/MOUNT RUSHMORE.jpg" alt="">
+                            <div class="featured-button button">
+                                <a href="#projects">Continue Reading</a>
+                            </div>
+                        </div>
+                        <div class="text-content">
+                            <h4>South Dakota, USA</h4>
+                            <span>Mount Rushmore</span>
+                            <p>Mount Rushmore is a famous monument in South Dakota, USA, featuring the carved faces of four U.S. presidents.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="img/austemple.jpg" alt="">
+                            <div class="featured-button button">
+                                <a href="#projects">Continue Reading</a>
+                            </div>
+                        </div>
+                        <div class="text-content">
+                            <h4>Sydney, Australia</h4>
+                            <span>Baháʼí House of Worship</span>
+                            <p>The Baháʼí Temple in Sydney, Australia, is a lotus-inspired structure known as the “Mother Temple of the Southern Hemisphere.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="img/pyramind.jpg" alt="">
+                            <div class="featured-button button">
+                                <a href="#projects">Continue Reading</a>
+                            </div>
+                        </div>
+                        <div class="text-content">
+                            <h4>Cario, Egypt</h4>
+                            <span>Pyramid of Giza</span>
+                            <p>The Pyramids of Giza are ancient monumental tombs located in Egypt near Cairo.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="img/tedha.jpg" alt="">
+                            <div class="featured-button button">
+                                <a href="#projects">Continue Reading</a>
+                            </div>
+                        </div>
+                        <div class="text-content">
+                            <h4>Pisa, Italy</h4>
+                            <span>The Leaning Tower of Pisa</span>
+                            <p>The Leaning Tower of Pisa is in Pisa, Tuscany, Italy, at the Piazza dei Miracoli.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="projects" class="content-section">
+            <div class="section-heading">
+                <h1>Some Beautiful<br><em>Scene</em></h1>
+                <p>
+                    <br>In the shadow of the valley, we learn humility, On the peak of the mountain, we feel glory, Life is the dance of both stories.</p>
+            </div>
+            <div class="section-content">
+                <div class="masonry">
+                    <div class="row">
+                        <div class="item">
+                            <div class="col-md-8">
+                                <a href="img/portfolio_big_1.jpg" data-lightbox="image"><img src="img/portfolio_1.jpg" alt="image 1"></a>
+                            </div>
+                        </div>
+                        <div class="item second-item">
+                            <div class="col-md-4">
+                                <a href="img/portfolio_big_2.jpg" data-lightbox="image"><img src="img/portfolio_2.jpg" alt="image 2"></a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-4">
+                                <a href="img/portfolio_big_3.jpg" data-lightbox="image"><img src="img/portfolio_3.jpg" alt="image 3"></a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-4">
+                                <a href="img/portfolio_big_4.jpg" data-lightbox="image"><img src="img/portfolio_4.jpg" alt="image 4"></a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-8">
+                                <a href="img/portfolio_big_5.jpg" data-lightbox="image"><img src="img/portfolio_5.jpg" alt="image 5"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="blog" class="content-section">
+            <div class="section-heading">
+                <h1>Resorts<br><em>Hotels</em></h1>
+                <p>Hotels: Modern comfort near top attractions.<br> Resorts: Luxury escapes with world-class hospitality. <br>Villas: Private spaces with style and comfort.<br> Motels: Affordable stays with easy access..</p>
+            </div>
+            <div class="section-content">
+                <div class="tabs-content">
+                    <div class="wrapper">
+                        <ul class="tabs clearfix" data-tabgroup="first-tab-group">
+                            <li><a href="#tab1" class="active">Hotels</a></li>
+                            <li><a href="#tab2">Resorts</a></li>
+                            <li><a href="#tab3">Villas</a></li>
+                            <li><a href="#tab4">Motels</a></li>
+                        </ul>
+                        <section id="first-tab-group" class="tabgroup">
+                            <div id="tab1">
+                                <ul>
+                                    <li>
+                                        <div class="item">
+                                            <img src="img/taj hotel.webp" alt="">
+                                            <div class="text-content">
+                                                <h4>Taj Mahal Palace</h4>
+                                                <span>Mumbai, India</span>
+                                                <p>Opened December 16, 1903 and built by Jamsetji Tata, the Taj was conceived as a “hotel worthy of Bombay” and quickly became India’s flagship luxury property. Today its Indo-Saracenic façade, grand public
+                                                    rooms and harbourfront location beside the Gateway of India make it a historic icon that blends Raj-era grandeur with modern hospitality.</p>
+
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <img src="img/signporehotel.webp" alt="">
+                                            <div class="text-content">
+                                                <h4>Raffles Hotel</h4>
+                                                <span>Singapore</span>
+                                                <p>Founded by the Sarkies brothers in 1887, Raffles began as a modest seaside hotel and grew into a colonial-era landmark famous for its long verandas, elegant suites and the birthplace of the Singapore Sling
+                                                    cocktail. It remains a symbol of Singapore’s heritage and refined service.</p>
+
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <img src="img/plazausa.webp" alt="">
+                                            <div class="text-content">
+                                                <h4>The Plaza</h4>
+                                                <span>New York City, USA.</span>
+                                                <p>Opened October 1, 1907, the Plaza is a landmark French-Renaissance–style hotel on Central Park South that has hosted dignitaries, film premieres and high-society events for more than a century. Its opulent
+                                                    public rooms, ballroom and historic address make it one of Manhattan’s most recognizable luxury hotels</p>
+
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="tab2">
+                                <ul>
+                                    <li>
+                                        <div class="item">
+                                            <img src="img/frenchresots.webp" alt="">
+                                            <div class="text-content">
+                                                <h4>Four Seasons Resort Bora Bora</h4>
+                                                <span>French Polynesia</span>
+                                                <p>Opened in 2008, this overwater-bungalow resort sits on Motu Tehotu and is renowned for its lagoon sanctuaries, coral conservation programs and spectacular water villas — a honeymoon and luxury-resort icon
+                                                    in the Pacific. The property combines Polynesian aesthetics with Four Seasons service standards. </p>
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <img src="img/maldivesresorts.webp" alt="">
+                                            <div class="text-content">
+                                                <h4>COMO Maalifushi</h4>
+                                                <span>Maldives</span>
+                                                <p>Opened 2014, Maalifushi is COMO’s Maldives private-island resort on the pristine Thaa Atoll; it’s praised for diving, understated villa design and COMO’s wellness/food philosophy. The resort is a modern
+                                                    favorite for families and divers seeking a quieter Maldivian atoll.</p>
+
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <img src="img/thailandrsorts.webp" alt="">
+                                            <div class="text-content">
+                                                <h4>Amanpuri</h4>
+                                                <span>Phuket, Thailand (Aman’s original resort)</span>
+                                                <p>Launched in 1988 as Aman Resorts’ flagship, Amanpuri’s minimalist, pavilions-and-villas concept (designed by Ed Tuttle) set a new standard in discreet, location-sensitive luxury and inspired many later resorts.
+                                                    Its private beach, simple Thai-inspired architecture and emphasis on serenity helped catalyze the modern “luxury retreat” movement.</p>
+
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="tab3">
+                                <ul>
+                                    <li>
+                                        <div class="item">
+                                            <img src="img/itlyvilla.webp" alt="">
+                                            <div class="text-content">
+                                                <h4>Villa d’Este</h4>
+                                                <span>Lake Como, Italy</span>
+                                                <p>Dating back to 1568 as a Renaissance summer palace, Villa d’Este evolved into a luxury hotel famous for its terraced gardens, fountains and lakeside grandeur — a symbol of aristocratic retreats on Lake Como.
+                                                    Its long artistic history and manicured grounds attract guests seeking stately elegance.</p>
+
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <img src="img/francevilla.webp" alt="">
+                                            <div class="text-content">
+                                                <h4>Villa Ephrussi de Rothschild</h4>
+                                                <span>Saint-Jean-Cap-Ferrat, France</span>
+                                                <p>Built for Béatrice Ephrussi in the early 1900s (completed 1912), this flamboyant villa and its nine themed gardens showcase Rothschild art collections and Belle Époque luxury on the French Riviera. It remains
+                                                    a celebrated historic villa open to visitors for tours and special events.</p>
+
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <img src="img/morcovilla.webp" alt="">
+                                            <div class="text-content">
+                                                <h4>Aman-style private villas (example: Amanjena villas)</h4>
+                                                <span>Marrakech, Morocco</span>
+                                                <p>Amanjena (opened 2000) and its villa residences were designed by Ed Tuttle in a Moorish/Andalusian style; the property’s private pavilions and villas are model examples of contemporary luxury villas inspired
+                                                    by local tradition and crafted for privacy. Aman-brand villas are noted for design coherence, seclusion and bespoke service.</p>
+
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="tab4">
+                                <ul>
+                                    <li>
+                                        <div class="item">
+                                            <img src="img/bluemotel.jpg" alt="">
+                                            <div class="text-content">
+                                                <h4>Blue Swallow Motel</h4>
+                                                <span>Tucumcari, New Mexico, USA.</span>
+                                                <p>Open since 1939 on historic Route 66, Blue Swallow is a restored neon-lit motor lodge that preserves mid-century charm — individual cottages, vintage signage and family ownership make it a classic roadside
+                                                    stop. It’s listed in travel guides as a quintessential Route 66 experience</p>
+
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <img src="img/wigwammotels.webp" alt="">
+                                            <div class="text-content">
+                                                <h4>Wigwam Motel (Holbrook)</h4>
+                                                <span>Holbrook, Arizona, USA.</span>
+                                                <p>Built in 1950, the Wigwam Village features concrete “wigwam” cabins (actually tipi-shaped) and is one of the surviving themed motels from America’s golden road-trip era; it’s on the National Register of
+                                                    Historic Places. Its quirky, photogenic units capture mid-century Americana and remain popular with Route 66 travelers.</p>
+
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <img src="img/madonamotels.webp" alt="">
+                                            <div class="text-content">
+                                                <h4>Madonna Inn</h4>
+                                                <span>San Luis Obispo, California, USA.</span>
+                                                <p>Opened in 1958, the Madonna Inn grew from 12 themed rooms into a flamboyantly decorated landmark known for individually designed suites, a pink dining room and eccentric décor — a beloved roadside destination
+                                                    on California’s Central Coast. Visitors come for the novelty rooms, bakery and memorable photo ops.</p>
+
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ===== REPLACE YOUR OLD <section id="contact"> WITH THIS BLOCK ===== -->
+        <section id="contact" class="content-section">
+            <div id="map">
+
+                <!-- Your existing Google Maps iframe (kept as-is) -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7536.827159219!2d73.00482293619899!3d19.177130191403087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1758439726547!5m2!1sen!2sin" width="600 " height="450 " style="border:0; "
+                    allowfullscreen=" " loading="lazy " referrerpolicy="no-referrer-when-downgrade "></iframe>
+            </div>
+
+            <div id="contact-content">
+                <div class="section-heading">
+                    <h1>Contact<br><em>US</em></h1>
+                </div>
+
+                <div class="section-content">
+                    <!-- contact form (id changed to contactForm to avoid id collisions) -->
+                    <form id="contactForm" action="#" method="post" novalidate>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <fieldset>
+                                    <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-4">
+                                <fieldset>
+                                    <input name="email" type="email" class="form-control" id="email" placeholder="Your email..." required>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-4">
+                                <fieldset>
+                                    <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject..." required>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-12">
+                                <fieldset>
+                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required></textarea>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-12">
+                                <fieldset>
+                                    <button type="submit" id="form-submit" class="btn">Send Message Now</button>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Feedback modal / overlay shown after successful submit -->
+                    <div id="contact-feedback" class="contact-feedback" aria-hidden="true" style="display:none;">
+                        <div class="feedback-box" role="dialog" aria-modal="true" aria-labelledby="feedback-title" aria-describedby="feedback-message">
+                            <button type="button" class="feedback-close" aria-label="Close">&times;</button>
+                            <h3 id="feedback-title">Thank you!</h3>
+                            <p id="feedback-message">We have received your message and will get back to you soon.</p>
+                            <div style="margin-top:18px;">
+                                <button id="feedback-ok" class="btn">OK</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Styles scoped to this section (you can move them to your CSS file if you prefer) -->
+                    <style>
+                        /* overlay */
+                        
+                        .contact-feedback {
+                            position: fixed;
+                            inset: 0;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            background: rgba(0, 0, 0, 0.55);
+                            z-index: 2100;
+                            padding: 20px;
+                        }
+                        
+                        .contact-feedback[aria-hidden="true"] {
+                            display: none;
+                        }
+                        
+                        .feedback-box {
+                            position: relative;
+                            background: #fff;
+                            border-radius: 10px;
+                            padding: 26px 22px;
+                            max-width: 540px;
+                            width: 100%;
+                            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+                            text-align: center;
+                            animation: popup .16s ease-out;
+                        }
+                        
+                        .feedback-close {
+                            position: absolute;
+                            top: 8px;
+                            right: 10px;
+                            border: none;
+                            background: transparent;
+                            font-size: 24px;
+                            line-height: 1;
+                            cursor: pointer;
+                        }
+                        
+                        .feedback-box h3 {
+                            margin: 0 0 8px;
+                            font-size: 22px;
+                            color: #063970;
+                        }
+                        
+                        .feedback-box p {
+                            margin: 0;
+                            font-size: 15px;
+                            color: #444;
+                        }
+                        
+                        @keyframes popup {
+                            from {
+                                transform: translateY(6px) scale(.995);
+                                opacity: 0;
+                            }
+                            to {
+                                transform: translateY(0) scale(1);
+                                opacity: 1;
+                            }
+                        }
+                        /* small screens */
+                        
+                        @media (max-width: 480px) {
+                            .feedback-box {
+                                padding: 18px;
+                            }
+                            .feedback-box h3 {
+                                font-size: 18px;
+                            }
+                        }
+                    </style>
+
+                    <!-- Script to validate & show greeting -->
+                    <script>
+                        (function() {
+                            const form = document.getElementById('contactForm');
+                            const feedback = document.getElementById('contact-feedback');
+                            const feedbackTitle = document.getElementById('feedback-title');
+                            const feedbackMessage = document.getElementById('feedback-message');
+                            const closeBtn = document.querySelector('.feedback-close');
+                            const okBtn = document.getElementById('feedback-ok');
+
+                            form.addEventListener('submit', function(e) {
+                                e.preventDefault();
+
+                                // HTML5 validation (will show native messages if fields invalid)
+                                if (!form.checkValidity()) {
+                                    form.reportValidity();
+                                    return;
+                                }
+
+                                // collect values
+                                const name = (form.name.value || '').trim();
+                                const email = (form.email.value || '').trim();
+                                const subject = (form.subject.value || '').trim();
+
+                                // personalize the greeting
+                                feedbackTitle.textContent = name ? `Thank you, ${name}!` : 'Thank you!';
+                                feedbackMessage.innerHTML = `
+              Thanks for reaching out${name ? ', ' + name : ''}.<br>
+              We received your message about <strong>${escapeHtml(subject)}</strong> and will reply to <strong>${escapeHtml(email)}</strong> within 24–48 hours.
+            `;
+
+                                // show overlay
+                                feedback.setAttribute('aria-hidden', 'false');
+                                feedback.style.display = 'flex';
+
+                                // clear form fields
+                                form.reset();
+                            });
+
+                            // helper: escape simple HTML to avoid accidental markup injection
+                            function escapeHtml(str) {
+                                return String(str).replace(/[&<>"']/g, function(m) {
+                                    return ({
+                                        '&': '&amp;',
+                                        '<': '&lt;',
+                                        '>': '&gt;',
+                                        '"': '&quot;',
+                                        "'": '&#39;'
+                                    })[m];
+                                });
+                            }
+
+                            function closeFeedback() {
+                                feedback.setAttribute('aria-hidden', 'true');
+                                feedback.style.display = 'none';
+                            }
+
+                            closeBtn.addEventListener('click', closeFeedback);
+                            okBtn.addEventListener('click', closeFeedback);
+
+                            // close when clicking outside the box
+                            feedback.addEventListener('click', function(ev) {
+                                if (ev.target === feedback) closeFeedback();
+                            });
+
+                            // allow escape key to close
+                            document.addEventListener('keydown', function(ev) {
+                                if (ev.key === 'Escape' && feedback.getAttribute('aria-hidden') === 'false') {
+                                    closeFeedback();
+                                }
+                            });
+                        })();
+                    </script>
+                </div>
+            </div>
+        </section>
+        <!-- ===== END CONTACT SECTION REPLACEMENT ===== -->
+
+        <section class="footer">
+            <p>Copyright &copy; 2025 ExploreX-Trip Planner</p>
+        </section>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        // Hide Header on on scroll down
+        var didScroll;
+        var lastScrollTop = 0;
+        var delta = 5;
+        var navbarHeight = $('header').outerHeight();
+
+        $(window).scroll(function(event) {
+            didScroll = true;
+        });
+
+        setInterval(function() {
+            if (didScroll) {
+                hasScrolled();
+                didScroll = false;
+            }
+        }, 250);
+
+        function hasScrolled() {
+            var st = $(this).scrollTop();
+
+            // Make sure they scroll more than delta
+            if (Math.abs(lastScrollTop - st) <= delta)
+                return;
+
+            // If they scrolled down and are past the navbar, add class .nav-up.
+            // This is necessary so you never see what is "behind" the navbar.
+            if (st > lastScrollTop && st > navbarHeight) {
+                // Scroll Down
+                $('header').removeClass('nav-down').addClass('nav-up');
+            } else {
+                // Scroll Up
+                if (st + $(window).height() < $(document).height()) {
+                    $('header').removeClass('nav-up').addClass('nav-down');
+                }
+            }
+
+            lastScrollTop = st;
+        }
+    </script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+
+</body>
+
+</html>

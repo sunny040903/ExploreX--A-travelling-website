@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Options - ExploreX</title>
+    <link rel="icon" type="image/png" href="LogoX.png" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .payment-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            background: #3498db;
+            color: #fff;
+        }
+        
+        button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>💳 Proceed to Payment</h1>
+    <div class="payment-box">
+        <h2>Pay via UPI</h2>
+        <p>UPI ID: <strong>ExploreX@upi</strong></p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=plankar@upi" alt="UPI QR Code">
+
+        <h2>Other Payment Methods</h2>
+        <button>Credit Card</button>
+        <button>Debit Card</button>
+        <button>Net Banking</button>
+
+        <br><br>
+        <button onclick="window.location.href='display.html'">Payment Done</button>
+    </div>
+</body>
+
+</html>

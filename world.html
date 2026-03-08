@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>World Tour Package</title>
+    <link rel="icon" type="image/png" href="LogoX.png" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #2b0a3d, #4a148c);
+            padding: 20px;
+            color: #fff;
+        }
+        
+        .box {
+            background: #1a0629;
+            padding: 35px;
+            border-radius: 16px;
+            max-width: 950px;
+            margin: auto;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
+        
+        h1 {
+            color: #e1bee7;
+        }
+        
+        .price {
+            font-size: 24px;
+            color: #ffccff;
+            font-weight: bold;
+        }
+        
+        .duration {
+            font-size: 18px;
+            color: #d1c4e9;
+        }
+        
+        label {
+            display: block;
+            margin-top: 18px;
+            font-weight: bold;
+            color: #f3e5f5;
+        }
+        
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+        }
+        
+        .countries {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .countries label {
+            font-weight: normal;
+            background: #311b4f;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .countries input {
+            margin-right: 8px;
+        }
+        
+        .details {
+            background: #2e124f;
+            padding: 18px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 14px 24px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .pay {
+            background: #7b1fa2;
+            color: #fff;
+        }
+        
+        .print {
+            background: #512da8;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>🌍 Ultimate World Tour Package</h1>
+
+        <p class="duration"><strong>Duration:</strong> 30 – 50 Days World Exploration</p>
+        <p><strong>Countries Allowed:</strong> Choose up to 7 Countries</p>
+        <p class="price">💲 Starting Price: 2700 USD</p>
+
+        <div class="details">
+            <p>✔ Multi-Country Flights Included</p>
+            <p>✔ Premium Hotels & Luxury Stays</p>
+            <p>✔ Global Sightseeing Tours</p>
+            <p>✔ Visa & Travel Assistance</p>
+            <p>✔ Dedicated World Tour Guide</p>
+        </div>
+
+        <label>Select Up to 7 Countries</label>
+        <div class="countries">
+            <label><input type="checkbox"> USA</label>
+            <label><input type="checkbox"> Canada</label>
+            <label><input type="checkbox"> France</label>
+            <label><input type="checkbox"> Italy</label>
+            <label><input type="checkbox"> Switzerland</label>
+            <label><input type="checkbox"> Japan</label>
+            <label><input type="checkbox"> Australia</label>
+            <label><input type="checkbox"> Singapore</label>
+            <label><input type="checkbox"> Thailand</label>
+            <label><input type="checkbox"> UAE (Dubai)</label>
+        </div>
+
+        <label>Traveler Full Name</label>
+        <input type="text" placeholder="Enter full name">
+
+        <label>Passport Number</label>
+        <input type="text" placeholder="Enter passport number">
+
+        <label>Preferred Tour Duration</label>
+        <select>
+        <option>30 Days</option>
+        <option>35 Days</option>
+        <option>40 Days</option>
+        <option>45 Days</option>
+        <option>50 Days</option>
+    </select>
+
+        <div class="buttons">
+            <button class="pay" onclick="payNow()">💳 Pay Starting 2700 USD</button>
+            <button class="print" onclick="window.print()">🖨 Print World Tour Ticket</button>
+        </div>
+    </div>
+
+    <script>
+        function payNow() {
+            const checked = document.querySelectorAll('.countries input:checked');
+            if (checked.length === 0 || checked.length > 7) {
+                alert("Please select minimum 1 and maximum 7 countries.");
+            } else {
+                alert("World Tour Booking Successful!\nCountries Selected: " + checked.length +
+                    "\nStarting Price: 2700 USD");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

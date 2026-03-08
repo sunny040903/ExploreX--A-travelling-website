@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorex - Plan Your Trip</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="LogoX.png" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Noto Serif Devanagari', serif;
+            background: #f9f4ef;
+            color: #333;
+        }
+        
+        header {
+            background: #a52a2a;
+            color: white;
+            text-align: center;
+            padding: 1px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        
+        section {
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        
+        h2 {
+            color: #a52a2a;
+            border-bottom: 2px solid #a52a2a;
+            padding-bottom: 5px;
+        }
+        
+        .form-group {
+            margin: 15px 0;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        select,
+        input,
+        button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        
+        button {
+            background: #a52a2a;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #7a1f1f;
+        }
+        
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border: 2px dashed #a52a2a;
+            background: #fff8f0;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .tour-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .tour {
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            background: #fff;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tour img {
+            width: 100%;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>🌸ExploreX - Your Travel Companion 🌏</header>
+
+    <section>
+        <h2>✈️ Plan Your Trip</h2>
+        <div class="form-group">
+            <label>From</label>
+            <input type="text" id="from" placeholder="Enter starting location (e.g. Delhi)">
+        </div>
+        <div class="form-group">
+            <label>To</label>
+            <input type="text" id="to" placeholder="Enter destination (e.g. Shimla)">
+        </div>
+        <div class="form-group">
+            <label>Choose Transport</label>
+            <select id="transport">
+        <option>Flight</option>
+        <option>Train</option>
+        <option>Cab</option>
+        <option>Cruise Ship</option>
+      </select>
+        </div>
+        <div class="form-group">
+            <label>Accommodation</label>
+            <select id="stay">
+        <option>Hotel</option>
+        <option>Motel</option>
+        <option>Villa</option>
+        <option>Resort</option>
+      </select>
+        </div>
+        <div class="form-group">
+            <label>Budget Range</label>
+            <select id="budget">
+        <option>Mid-range</option>
+        <option>High-range</option>
+      </select>
+        </div>
+        <button onclick="calculateTrip()">Estimate Cost</button>
+
+        <div id="result" class="result"></div>
+        <button id="bookBtn" class="hidden">🎟️ Book Your Tickets</button>
+        <button id="bookBtn" class="hidden">🎟️ Book Your Tickets</button>
+        <script>
+            document.getElementById("bookBtn").addEventListener("click", function() {
+                window.location.href = "booking.html";
+            });
+        </script>
+
+        <section class="popular-tours">
+            <h2>🌄 Popular Tours</h2>
+
+            <div class="tour-cards">
+
+                <a href="himachal.html" class="tour-card">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Himachal Tour">
+                    <div class="overlay">
+                        <h3>Himachal Tour</h3>
+                        <p>Explore the breathtaking valleys of Himachal Pradesh</p>
+                    </div>
+                </a>
+
+
+
+                <a href="honeymoon.html" class="tour-card">
+                    <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac" alt="Honeymoon Tour">
+                    <div class="overlay">
+                        <h3>Honeymoon Tour</h3>
+                        <p>Romantic destinations & luxury stays</p>
+                    </div>
+                </a>
+
+                <a href="international.html" class="tour-card">
+                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34" alt="International Tour">
+                    <div class="overlay">
+                        <h3>International Tour</h3>
+                        <p>Explore world-famous countries</p>
+                    </div>
+                </a>
+
+                <a href="world.html" class="tour-card">
+                    <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff" alt="World Tour">
+                    <div class="overlay">
+                        <h3>World Tour</h3>
+                        <p>Once-in-a-lifetime global journey</p>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+
+        <script>
+            function calculateTrip() {
+                let from = document.getElementById("from").value;
+                let to = document.getElementById("to").value;
+                let transport = document.getElementById("transport").value;
+                let stay = document.getElementById("stay").value;
+                let budget = document.getElementById("budget").value;
+
+                let baseCost = 0;
+
+                if (transport === "Flight") baseCost += 15000;
+                if (transport === "Train") baseCost += 3000;
+                if (transport === "Cab") baseCost += 2000;
+
+
+                if (stay === "Hotel") baseCost += 8000;
+                if (stay === "Motel") baseCost += 4000;
+                if (stay === "Villa") baseCost += 12000;
+                if (stay === "Resort") baseCost += 15000;
+                if (stay === "No Where") baseCost += 0;
+
+                if (budget === "High-range") baseCost *= 1.5;
+
+                document.getElementById("result").innerHTML =
+                    `<b>Estimated Cost:</b> ₹${baseCost} <br> 
+         <b>From:</b> ${from} <br>
+         <b>To:</b> ${to} <br>
+         <b>Transport:</b> ${transport} <br>
+         <b>Stay:</b> ${stay} <br>
+         <b>Budget:</b> ${budget}`;
+
+                document.getElementById("bookBtn").classList.remove("hidden");
+            }
+            document.getElementById("bookBtn").addEventListener("click", function() {
+                window.location.href = "booking.html";
+            });
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Analytics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 30px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .text-summary {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .chart-container {
+            width: 70%;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Payment Analytics Dashboard</h1>
+
+    <!-- Payment Status Section -->
+    <div class="section">
+        <h2>Payment Status</h2>
+        <div class="text-summary">
+            Out of all transactions, 18 payments have been successfully completed while 3 remain pending. This indicates a strong completion rate, with over 85% of payments processed without issues. Pending payments are being monitored to ensure quick resolution
+            and customer satisfaction.
+        </div>
+        <div class="chart-container">
+            <canvas id="statusChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Payment Methods Section -->
+    <div class="section">
+        <h2>Payment Methods</h2>
+        <div class="text-summary">
+            Customers used different payment methods to complete their bookings. UPI accounted for the majority with 12 transactions, followed by Credit Cards with 6, and Net Banking with 3. This distribution shows the growing preference for digital wallets and instant
+            transfers.
+        </div>
+        <div class="chart-container">
+            <canvas id="methodPieChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="methodBarChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Payment Status Pie Chart
+        new Chart(document.getElementById('statusChart'), {
+            type: 'pie',
+            data: {
+                labels: ['Done', 'Pending'],
+                datasets: [{
+                    data: [18, 3],
+                    backgroundColor: ['#2ecc71', '#e74c3c']
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'right'
+                    }
+                }
+            }
+        });
+
+        // Payment Methods Pie Chart
+        new Chart(document.getElementById('methodPieChart'), {
+            type: 'pie',
+            data: {
+                labels: ['UPI', 'Credit Card', 'Net Banking'],
+                datasets: [{
+                    data: [12, 6, 3],
+                    backgroundColor: ['#3498db', '#f1c40f', '#9b59b6']
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'right'
+                    }
+                }
+            }
+        });
+
+        // Payment Methods Bar Chart
+        new Chart(document.getElementById('methodBarChart'), {
+            type: 'bar',
+            data: {
+                labels: ['UPI', 'Credit Card', 'Net Banking'],
+                datasets: [{
+                    label: 'Number of Payments',
+                    data: [12, 6, 3],
+                    backgroundColor: ['#3498db', '#f1c40f', '#9b59b6']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

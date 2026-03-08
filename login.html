@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ExploreX Login</title>
+    <link rel="icon" type="image/png" href="LogoX.png" />
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 320px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #ff6f00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #e65c00;
+        }
+        
+        a {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #1e3c72;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h2>Login to ExploreX</h2>
+
+        <input id="userid" placeholder="User ID">
+        <input id="password" type="password" placeholder="Password">
+
+        <button onclick="login()">Login</button>
+
+        <a onclick="forgotPassword()">Forgot Password?</a>
+        <a href="register.html">Don't have account? Register</a>
+
+        <p id="error" style="color:red;"></p>
+    </div>
+
+    <script>
+        function login() {
+
+            let userid = document.getElementById("userid").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let error = document.getElementById("error");
+
+            let users = JSON.parse(localStorage.getItem("explorex_users")) || [];
+
+            let userFound = users.find(user => user.userid === userid && user.password === password);
+
+            if (userFound) {
+                localStorage.setItem("loggedInUser", userid);
+                window.location.href = "home.html";
+            } else {
+                error.textContent = "Invalid ID or Password!";
+            }
+        }
+
+        function forgotPassword() {
+            let userid = prompt("Enter your User ID:");
+
+            let users = JSON.parse(localStorage.getItem("explorex_users")) || [];
+
+            let user = users.find(u => u.userid === userid);
+
+            if (user) {
+                alert("Your password is: " + user.password);
+            } else {
+                alert("User not found!");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

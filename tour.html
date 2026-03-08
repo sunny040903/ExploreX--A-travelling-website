@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Scanner</title>
+    <link rel="icon" type="image/png" href="LogoX.png" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #fff7e6, #f5d7b2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .payment-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 18px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, .2);
+            border: 3px solid #b22222;
+        }
+        
+        h2 {
+            color: #8b0000;
+        }
+        
+        .amount {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #000;
+        }
+        
+        .qr {
+            margin: 20px 0;
+        }
+        
+        .qr img {
+            width: 180px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+        }
+        
+        .pay-options {
+            margin-top: 20px;
+        }
+        
+        .pay-options button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 25px;
+            font-size: 15px;
+            cursor: pointer;
+            color: white;
+        }
+        
+        .upi {
+            background: #2e7d32;
+        }
+        
+        .card {
+            background: #1565c0;
+        }
+        
+        .note {
+            font-size: 13px;
+            color: #555;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="payment-box">
+        <h2>📲 Scan & Pay</h2>
+
+        <div class="amount">
+            Amount: ₹<span id="payAmount"></span>
+        </div>
+
+        <!-- QR CODE -->
+        <div class="qr">
+            <!-- Replace this QR with real UPI QR later -->
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=demo@upi" alt="UPI QR">
+        </div>
+
+        <div class="pay-options">
+            <button class="upi">Pay via UPI</button>
+            <button class="card">Pay via Credit / Debit Card</button>
+        </div>
+
+        <div class="note">
+            Secure Payment • UPI • Cards Accepted 🇮🇳
+        </div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("payAmount").innerText = params.get("amount");
+    </script>
+
+</body>
+
+</html>

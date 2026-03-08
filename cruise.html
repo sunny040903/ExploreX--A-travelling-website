@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Cruise Booking</title>
+    <link rel="stylesheet" href="cruise.css">
+    <link rel="icon" type="image/png" href="LogoX.png" />
+</head>
+
+<body>
+
+    <h2>🚢 Cruise Ticket Booking</h2>
+
+    <div class="box">
+        <label>From Country</label>
+        <select id="from">
+        <option>India</option>
+        <option>UAE</option>
+        <option>UK</option>
+        <option>Brazil</option>
+        <option>Italy</option>
+    </select>
+
+        <label>To Country / Route</label>
+        <select id="to">
+        <option>South Africa</option>
+        <option>Australia</option>
+        <option>USA</option>
+        <option>Argentina</option>
+        <option>France → Spain → Portugal</option>
+        <option>Party Cruise (Luxury)</option>
+    </select>
+
+        <label>Departure Date</label>
+        <input type="date" id="date">
+
+        <button onclick="searchCruise()">Search Cruises</button>
+    </div>
+
+    <script src="cruise.js"></script>
+</body>
+
+</html>

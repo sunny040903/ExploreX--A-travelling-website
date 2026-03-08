@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Honeymoon Vacation Tour – Booking</title>
+    <link rel="icon" type="image/png" href="LogoX.png" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fff0f5, #ffe6ea);
+            padding: 30px;
+        }
+        /* Main Card */
+        
+        .tour-box {
+            max-width: 1000px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, .2);
+            border: 4px solid #c2185b;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #c2185b;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 30px;
+        }
+        /* Layout */
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 30px;
+        }
+        /* Info */
+        
+        h3 {
+            color: #c2185b;
+            border-bottom: 2px dashed #f8bbd0;
+            padding-bottom: 6px;
+        }
+        
+        ul {
+            line-height: 1.9;
+        }
+        /* Booking Box */
+        
+        .booking {
+            background: #fff5f8;
+            padding: 22px;
+            border-radius: 14px;
+            border: 2px solid #f8bbd0;
+        }
+        
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+        
+        select,
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Price */
+        
+        .price-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #ffe6ee;
+            border-radius: 12px;
+            border: 2px dashed #c2185b;
+        }
+        
+        .total {
+            font-size: 22px;
+            font-weight: 700;
+            color: #c2185b;
+        }
+        /* Button */
+        
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 14px;
+            background: linear-gradient(45deg, #c2185b, #ff5f8f);
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            opacity: .9;
+        }
+        
+        .note {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tour-box">
+        <h1>💑 Honeymoon Vacation Tour</h1>
+        <div class="subtitle">Celebrate Love • Luxury • Romance</div>
+
+        <p><strong>Duration:</strong> Minimum 10 Days – Maximum 16 Days</p>
+        <p><strong>Hotel:</strong> Luxury 5-Star Mountain View Hotels</p>
+        <div class="grid">
+            <!-- LEFT INFO -->
+            <div>
+                <h3>📍 Romantic Destinations</h3>
+                <ul>
+                    <li>Manali</li>
+                    <li>Goa</li>
+                    <li>Udaipur</li>
+                    <li>Maldives</li>
+                </ul>
+
+                <h3>💖 Special Arrangements</h3>
+                <ul>
+                    <li>Candle Light Dinner</li>
+                    <li>Private Beach Stay</li>
+                    <li>Couple Spa</li>
+                    <li>Room Decoration</li>
+                </ul>
+
+                <h3>⭐ Highlights</h3>
+                <ul>
+                    <li>Private sightseeing</li>
+                    <li>Luxury resorts & villas</li>
+                    <li>Romantic surprises</li>
+                </ul>
+            </div>
+
+            <!-- RIGHT BOOKING -->
+            <div class="booking">
+                <h3>🧾 Book Your Honeymoon</h3>
+
+                <label>Package Duration</label>
+                <select id="days">
+                <option value="">Select Package</option>
+                <option value="35000">10 – 12 Days (₹35,000)</option>
+                <option value="48000">13 – 16 Days (₹48,000)</option>
+            </select>
+
+                <label>Food & Dinner Option</label>
+                <select id="food">
+                <option value="">Select Option</option>
+                <option value="3000">Veg Only (+₹3,000)</option>
+                <option value="4500">Non-Veg (+₹4,500)</option>
+                <option value="6999">Veg + Non-Veg + Candle Dinner (+₹6,999)</option>
+                <option value="3999">Candle Dinner (+₹3,999)</option>
+            </select>
+
+                <label>Number of Couples</label>
+                <input type="number" id="persons" min="1" value="1">
+
+                <div class="price-box">
+                    <div>Base Price: ₹<span id="base">0</span></div>
+                    <div>Food Charges: ₹<span id="foodPrice">0</span></div>
+                    <div>Couples: <span id="count">1</span></div>
+                    <hr>
+                    <div class="total">Total: ₹<span id="total">0</span></div>
+                </div>
+
+                <button type="button" onclick="payNow()">Proceed to Payment ❤️</button>
+            </div>
+        </div>
+
+        <div class="note">
+            🌹 Valentine Special • Romantic Setup • Price per Couple
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            let base = Number(days.value) || 0;
+            let foodCharge = Number(food.value) || 0;
+            let couples = Number(persons.value) || 1;
+
+            document.getElementById("base").innerText = base;
+            document.getElementById("foodPrice").innerText = foodCharge;
+            document.getElementById("count").innerText = couples;
+
+            let total = (base + foodCharge) * couples;
+            document.getElementById("total").innerText = total;
+        }
+
+        const days = document.getElementById("days");
+        const food = document.getElementById("food");
+        const persons = document.getElementById("persons");
+
+        days.onchange = calculate;
+        food.onchange = calculate;
+        persons.oninput = calculate;
+
+        function payNow() {
+            let total = document.getElementById("total").innerText;
+            if (parseInt(total) <= 0) {
+                alert("Please select package details first ❤️");
+                return;
+            }
+            window.location.href = "scanner.html?amount=" + total;
+        }
+    </script>
+
+</body>
+
+</html>

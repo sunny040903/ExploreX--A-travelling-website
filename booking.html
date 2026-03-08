@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Booking System</title>
+    <link rel="icon" type="image/png" href="LogoX.png" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        h1 {
+            margin-bottom: 30px;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🚀 Choose Your Booking Option</h1>
+
+    <div class="options">
+        <div class="card" onclick="goTo('train')">🚆 Train</div>
+        <div class="card" onclick="goTo('bus')">🚌 Bus</div>
+        <div class="card" onclick="goTo('flight')">✈️ Flight</div>
+        <div class="card" onclick="goTo('cruise')">🛳️ Cruise</div>
+        <div class="card" onclick="goTo('cab')">🚖 Cab</div>
+        <div class="card" onclick="goTo('hotel')">hotel</div>
+
+    </div>
+
+    <script>
+        function goTo(type) {
+            if (type === "train") {
+                window.location.href = "train.html";
+            } else if (type === "bus") {
+                window.location.href = "bus.html";
+            } else if (type === "flight") {
+                window.location.href = "flight.html";
+            } else if (type === "cruise") {
+                window.location.href = "cruise.html";
+            } else if (type === "cab") {
+                window.location.href = "cab.html";
+            } else if (type === "hotel") {
+                window.location.href = "hotel.html";
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

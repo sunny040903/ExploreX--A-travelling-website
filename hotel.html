@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Global Hotel Booking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="LogoX.png" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>🌍 Worldwide Hotel Booking</h1>
+
+        <!-- Booking Form -->
+        <div id="bookingSection">
+            <label>Select Country / City</label>
+            <select id="location">
+                 <!-- India -->
+    <option>India, Delhi</option>
+    <option>India, Mumbai</option>
+    <option>India, Chennai</option>
+    <option>India, Kolkata</option>
+    <option>India, Jaipur</option>
+    <option>India, Goa</option>
+
+    <!-- USA -->
+    <option>USA, New York</option>
+    <option>USA, Los Angeles</option>
+    <option>USA, Chicago</option>
+    <option>USA, Washington</option>
+    <option>USA, Las Vegas</option>
+
+    <!-- UK -->
+    <option>UK, London</option>
+    <option>UK, Manchester</option>
+    <option>UK, Liverpool</option>
+    <option>UK, Birmingham</option>
+    <option>UK, Edinburgh</option>
+
+    <!-- France -->
+    <option>France, Paris</option>
+    <option>France, Nice</option>
+    <option>France, Lyon</option>
+    <option>France, Cannes</option>
+    <option>France, Marseille</option>
+
+    <!-- Australia -->
+    <option>Australia, Sydney</option>
+    <option>Australia, Melbourne</option>
+    <option>Australia, Perth</option>
+    <option>Australia, Brisbane</option>
+    <option>Australia, Adelaide</option>
+
+    <!-- Canada -->
+    <option>Canada, Toronto</option>
+    <option>Canada, Vancouver</option>
+    <option>Canada, Montreal</option>
+    <option>Canada, Calgary</option>
+    <option>Canada, Ottawa</option>
+
+    <!-- UAE -->
+    <option>UAE, Dubai</option>
+    <option>UAE, Abu Dhabi</option>
+    <option>UAE, Sharjah</option>
+    <option>UAE, Ajman</option>
+    <option>UAE, Ras Al Khaimah</option>
+
+    <!-- Japan -->
+    <option>Japan, Tokyo</option>
+    <option>Japan, Osaka</option>
+    <option>Japan, Kyoto</option>
+    <option>Japan, Hiroshima</option>
+    <option>Japan, Sapporo</option>
+
+    <!-- Germany -->
+    <option>Germany, Berlin</option>
+    <option>Germany, Munich</option>
+    <option>Germany, Frankfurt</option>
+    <option>Germany, Hamburg</option>
+    <option>Germany, Cologne</option>
+
+    <!-- South Africa -->
+    <option>South Africa, Cape Town</option>
+    <option>South Africa, Durban</option>
+    <option>South Africa, Johannesburg</option>
+    <option>South Africa, Pretoria</option>
+    <option>South Africa, Port Elizabeth</option>
+            </select>
+
+            <label>Hotel Name</label>
+            <select id="hotelList">
+                <option>Hotel Sunshine</option>
+                <option>Grand Palace</option>
+                <option>Sea View Resort</option>
+                <option>Mountain Stay</option>
+                <option>City Lights Hotel</option>
+            </select>
+
+            <label>Stay Type</label>
+            <select id="stayType">
+                <option>Hotel</option>
+                <option>Motel</option>
+                <option>Villa</option>
+                <option>Hostel</option>
+                <option>Apartment</option>
+            </select>
+
+            <label>Check In</label>
+            <input type="date" id="checkin">
+
+            <label>Check Out</label>
+            <input type="date" id="checkout">
+
+            <label>Guests</label>
+            <input type="number" id="guests" min="1" value="1">
+
+            <button onclick="calculatePrice()">Check Price</button>
+            <h3 id="price"></h3>
+
+            <button onclick="saveBookingDetails()">Proceed To Payment</button>
+        </div>
+    </div>
+
+    <script>
+        function calculatePrice() {
+            const guests = document.getElementById("guests").value;
+            const price = guests * 200; // simple calculation
+            document.getElementById("price").innerText = "$" + price;
+        }
+
+        function saveBookingDetails() {
+            const location = document.getElementById("location").value;
+            const hotel = document.getElementById("hotelList").value;
+            const stayType = document.getElementById("stayType").value;
+            const checkin = document.getElementById("checkin").value;
+            const checkout = document.getElementById("checkout").value;
+            const guests = document.getElementById("guests").value;
+            const price = document.getElementById("price").innerText;
+
+            // Save to localStorage
+            localStorage.setItem("bookingLocation", location);
+            localStorage.setItem("bookingHotel", hotel);
+            localStorage.setItem("bookingStayType", stayType);
+            localStorage.setItem("bookingCheckin", checkin);
+            localStorage.setItem("bookingCheckout", checkout);
+            localStorage.setItem("bookingGuests", guests);
+            localStorage.setItem("bookingPrice", price);
+
+            // Redirect to payment page
+            window.location.href = "qrcode.html";
+        }
+    </script>
+</body>
+
+</html>

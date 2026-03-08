@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>International Tour Package</title>
+    <link rel="icon" type="image/png" href="LogoX.png" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef6ff;
+            padding: 20px;
+        }
+        
+        .box {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 900px;
+            margin: auto;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #0d47a1;
+        }
+        
+        .price {
+            font-size: 22px;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        
+        select,
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        
+        .buttons {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .pay {
+            background: #2e7d32;
+            color: white;
+        }
+        
+        .print {
+            background: #1565c0;
+            color: white;
+        }
+        
+        .details {
+            margin-top: 15px;
+            background: #f1f8ff;
+            padding: 15px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>🌍 International Tour Package</h1>
+
+        <p><strong>Duration:</strong> 13 Days International Trip</p>
+        <p><strong>Tour Type:</strong> International Only</p>
+        <p class="price">💲 Price: 2000 USD (Fixed)</p>
+
+        <div class="details">
+            <p>✔ Flights Included</p>
+            <p>✔ 4 & 5 Star Hotels</p>
+            <p>✔ Sightseeing & Local Transport</p>
+            <p>✔ Travel Guide Assistance</p>
+        </div>
+
+        <label for="country">Choose Destination Country</label>
+        <select id="country">
+        <option value="">-- Select Country --</option>
+        <option>France</option>
+        <option>Italy</option>
+        <option>Switzerland</option>
+        <option>Thailand</option>
+        <option>Dubai (UAE)</option>
+        <option>Singapore</option>
+        <option>Japan</option>
+        <option>Australia</option>
+        <option>USA</option>
+    </select>
+
+        <label for="name">Traveler Full Name</label>
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <label for="passport">Passport Number</label>
+        <input type="text" id="passport" placeholder="Enter passport number">
+
+        <div class="buttons">
+            <button class="pay" onclick="makePayment()">💳 Pay 2000 USD</button>
+            <button class="print" onclick="window.print()">🖨 Print Ticket</button>
+        </div>
+    </div>
+
+    <script>
+        function makePayment() {
+            const country = document.getElementById("country").value;
+            const name = document.getElementById("name").value;
+
+            if (country === "" || name === "") {
+                alert("Please fill all required details before payment.");
+            } else {
+                alert("Payment Successful!\n\nDestination: " + country + "\nAmount: 2000 USD");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

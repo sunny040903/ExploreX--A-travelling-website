@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ExploreX Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="LogoX.png" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-3d/dist/chartjs-plugin-3d.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .topbar {
+            background: #3498db;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .layout {
+            display: flex;
+        }
+        
+        .sidebar {
+            width: 200px;
+            background: #2c3e50;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 10px 0;
+        }
+        
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .chart-container {
+            width: 70%;
+            margin: 30px auto;
+        }
+        
+        .text-summary {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .topbar {
+            background: #3498db;
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .topbar h1 {
+            margin: 0;
+        }
+        
+        .exit-btn {
+            background: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+        
+        .exit-btn:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="topbar">
+        <h1>🌏 ExploreX Admin Panel</h1>
+        <button class="exit-btn" onclick="location.href='index.html'">Exit</button>
+    </header>
+
+    <div class="layout">
+        <nav class="sidebar">
+            <a href="package.html">Packages</a>
+            <a href="bookingadmin.html">Bookings</a>
+            <a href="hotellist.html">Hotels</a>
+            <a href="paisa.html">Payments</a>
+            <a href="review.html">Reviews</a>
+            <a href="setting.html">Settings</a>
+        </nav>
+
+        <main class="content">
+            <h2 id="title">Dashboard</h2>
+
+            <div class="cards">
+                <div class="card">
+                    <h3>Total Users</h3>
+                    <p>30</p>
+                </div>
+                <div class="card">
+                    <h3>Total Bookings</h3>
+                    <p>135</p>
+                </div>
+                <div class="card">
+                    <h3>Total Packages</h3>
+                    <p>12</p>
+                </div>
+                <div class="card">
+                    <h3>Total Revenue</h3>
+                    <p>₹5,76,665</p>
+                </div>
+            </div>
+
+            <!-- Text Summary -->
+            <div class="text-summary">
+                The dashboard shows a total of 30 registered users, 135 bookings completed, 12 active packages, and revenue of ₹5,76,665. This indicates strong engagement and steady growth. The pie chart below visualizes the distribution of these metrics for quick comparison.
+            </div>
+
+            <!-- 3D Pie Chart -->
+            <div class="chart-container">
+                <canvas id="overviewChart"></canvas>
+            </div>
+
+            <!-- Seasonal Activity Summary -->
+            <div class="text-summary">
+                Customer activity trends show higher engagement during summer in destinations like Hawaii, South Africa, and Water City beaches. Winter travel peaks in Russia and Manali, while rainy seasons see significantly fewer bookings. The chart below highlights
+                these seasonal preferences.
+            </div>
+
+            <!-- Seasonal Activity Chart -->
+            <div class="chart-container">
+                <canvas id="seasonChart"></canvas>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // 3D Pie Chart for Overview
+        new Chart(document.getElementById('overviewChart'), {
+            type: 'pie',
+            data: {
+                labels: ['Users', 'Bookings', 'Packages', 'Revenue'],
+                datasets: [{
+                    data: [30, 135, 12, 576665],
+                    backgroundColor: ['#3498db', '#2ecc71', '#f1c40f', '#e67e22']
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'right'
+                    }
+                }
+            }
+        });
+
+        // Seasonal Activity Chart (Bar)
+        new Chart(document.getElementById('seasonChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Summer - Hawaii', 'Summer - South Africa', 'Summer - Water City',
+                    'Winter - Russia', 'Winter - Manali', 'Rainy - General'
+                ],
+                datasets: [{
+                    label: 'Customer Activity',
+                    data: [90, 75, 60, 80, 70, 20],
+                    backgroundColor: ['#3498db', '#2ecc71', '#1abc9c', '#9b59b6', '#f39c12', '#95a5a6']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Explorex | Cab Booking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="LogoX.png" />
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            min-height: 100vh;
+        }
+        /* Navbar */
+        
+        .navbar {
+            background: #000;
+            color: #fff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar h2 {
+            margin: 0;
+            color: #00c6ff;
+        }
+        
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+        /* Main Container */
+        
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .container h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #203a43;
+        }
+        /* Form */
+        
+        .form-group {
+            margin-bottom: 18px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+        
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+        
+        .row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .row .form-group {
+            flex: 1;
+        }
+        /* Cab Options */
+        
+        .cab-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .cab-card {
+            border: 2px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .cab-card:hover {
+            border-color: #00c6ff;
+            transform: scale(1.03);
+        }
+        
+        .cab-card.selected {
+            border-color: #00c6ff;
+            background: #e8f9ff;
+        }
+        
+        .cab-card h3 {
+            margin: 10px 0 5px;
+        }
+        /* Button */
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background: #00c6ff;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        button:hover {
+            background: #009edc;
+        }
+        /* Result */
+        
+        .result {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f2f2f2;
+            display: none;
+        }
+        
+        footer {
+            text-align: center;
+            color: #ccc;
+            margin-top: 40px;
+            padding-bottom: 20px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h2>ExploreX</h2>
+        <div>
+            <a href="#">Flights</a>
+            <a href="#">Trains</a>
+            <a href="#">Buses</a>
+            <a href="#">Cabs</a>
+            <a href="#">Hotels</a>
+        </div>
+    </div>
+
+    <!-- Cab Booking Form -->
+    <div class="container">
+        <h1>Book a Cab</h1>
+
+        <div class="row">
+            <div class="form-group">
+                <label>Pickup Location</label>
+                <input type="text" id="pickup" placeholder="Enter pickup location">
+            </div>
+
+            <div class="form-group">
+                <label>Drop Location</label>
+                <input type="text" id="drop" placeholder="Enter drop location">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label>Pickup Date</label>
+                <input type="date" id="date">
+            </div>
+
+            <div class="form-group">
+                <label>Pickup Time</label>
+                <input type="time" id="time">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Select Cab Type</label>
+            <div class="cab-types">
+                <div class="cab-card" data-cab="Mini" data-price="10">
+                    🚗
+                    <h3>Mini</h3>
+                    <p>₹10 / km</p>
+                </div>
+
+                <div class="cab-card" data-cab="Sedan" data-price="15">
+                    🚕
+                    <h3>Sedan</h3>
+                    <p>₹15 / km</p>
+                </div>
+
+                <div class="cab-card" data-cab="SUV" data-price="20">
+                    🚙
+                    <h3>SUV</h3>
+                    <p>₹20 / km</p>
+                </div>
+
+                <div class="cab-card" data-cab="Luxury" data-price="30">
+                    🚘
+                    <h3>Luxury</h3>
+                    <p>₹30 / km</p>
+                </div>
+            </div>
+        </div>
+
+        <button onclick="bookCab()">Book Cab</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <footer>
+        © 2026 Plankar Travel Services | Cab Booking Module
+    </footer>
+
+    <script>
+        let selectedCab = null;
+        let pricePerKm = 0;
+
+        const cabCards = document.querySelectorAll(".cab-card");
+
+        cabCards.forEach(card => {
+            card.addEventListener("click", () => {
+                cabCards.forEach(c => c.classList.remove("selected"));
+                card.classList.add("selected");
+                selectedCab = card.dataset.cab;
+                pricePerKm = card.dataset.price;
+            });
+        });
+
+        function bookCab() {
+            const pickup = document.getElementById("pickup").value;
+            const drop = document.getElementById("drop").value;
+            const date = document.getElementById("date").value;
+            const time = document.getElementById("time").value;
+
+            if (!pickup || !drop || !date || !time || !selectedCab) {
+                alert("Please fill all details and select a cab type.");
+                return;
+            }
+
+            // Dummy distance calculation
+            const distance = Math.floor(Math.random() * 20) + 5;
+            const totalFare = distance * pricePerKm;
+
+            const result = document.getElementById("result");
+            result.style.display = "block";
+            result.innerHTML = `
+                <h3>Booking Confirmed 🚖</h3>
+                <p><strong>Pickup:</strong> ${pickup}</p>
+                <p><strong>Drop:</strong> ${drop}</p>
+                <p><strong>Date & Time:</strong> ${date} at ${time}</p>
+                <p><strong>Cab Type:</strong> ${selectedCab}</p>
+                <p><strong>Distance:</strong> ${distance} km</p>
+                <p><strong>Total Fare:</strong> ₹${totalFare}</p>
+            `;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f4efe6;
+}
+
+.topbar {
+    background: #160355;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.layout {
+    display: flex;
+}
+
+.sidebar {
+    width: 220px;
+    background: #0a0120;
+    height: 100vh;
+    padding: 20px;
+}
+
+.sidebar a {
+    display: block;
+    color: rgb(255, 255, 255);
+    margin: 15px 0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sidebar a:hover .content {
+    padding: 30px;
+    flex: 1;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: rgb(190, 21, 212);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
+    text-align: center;
+}

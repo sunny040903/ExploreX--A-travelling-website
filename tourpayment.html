@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Payment & Ticket</title>
+    <link rel="icon" type="image/png" href="LogoX.png" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #fff7e6, #f5d7b2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 18px;
+            width: 380px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, .2);
+            border: 3px solid #b22222;
+        }
+        
+        h2 {
+            color: #8b0000;
+        }
+        
+        .amount {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        .qr img {
+            width: 180px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 12px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            color: white;
+        }
+        
+        .upi {
+            background: #2e7d32;
+        }
+        
+        .card {
+            background: #1565c0;
+        }
+        
+        .done {
+            background: #b22222;
+        }
+        
+        .print {
+            background: #333;
+        }
+        
+        .ticket {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border: 2px dashed #b22222;
+            border-radius: 12px;
+            background: #fffaf0;
+            text-align: left;
+            font-size: 14px;
+        }
+        
+        .ticket h3 {
+            text-align: center;
+            color: #8b0000;
+            margin-bottom: 10px;
+        }
+        
+        .note {
+            font-size: 13px;
+            color: #555;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box" id="mainBox">
+        <h2>📲 Scan & Pay</h2>
+
+        <div class="amount">
+            Amount: ₹<span id="payAmount"></span>
+        </div>
+
+        <div class="qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=demo@upi" alt="UPI QR">
+        </div>
+
+        <button class="upi">Pay via UPI</button>
+        <button class="card">Pay via Credit / Debit Card</button>
+        <button class="done" onclick="paymentDone()">Payment Done</button>
+
+        <!-- TICKET -->
+        <div class="ticket" id="ticket">
+            <h3>🎟️ Travel Ticket</h3>
+            <p><b>Destination:</b> Himachal Pradesh</p>
+            <p><b>Booking ID:</b> HP<span id="bookingId"></span></p>
+            <p><b>Amount Paid:</b> ₹<span id="ticketAmount"></span></p>
+            <p><b>Status:</b> Confirmed ✅</p>
+            <p><b>Date:</b> <span id="date"></span></p>
+
+            <button class="print" onclick="printTicket()">🖨️ Print Ticket</button>
+        </div>
+
+        <div class="note">
+            Secure Payment • UPI • Cards Accepted 🇮🇳
+        </div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const amount = params.get("amount") || "0";
+        document.getElementById("payAmount").innerText = amount;
+
+        function paymentDone() {
+            document.getElementById("ticket").style.display = "block";
+            document.getElementById("ticketAmount").innerText = amount;
+            document.getElementById("bookingId").innerText = Math.floor(Math.random() * 90000 + 10000);
+            document.getElementById("date").innerText = new Date().toDateString();
+        }
+
+        function printTicket() {
+            window.print();
+        }
+    </script>
+
+</body>
+
+</html>

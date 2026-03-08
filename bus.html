@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bus Booking</title>
+    <link rel="stylesheet" href="bus.css">
+    <link rel="icon" type="image/png" href="LogoX.png" />
+</head>
+
+<body>
+
+    <h2>🚌 Bus Booking</h2>
+
+    <div class="box">
+        <label>Country</label>
+        <select id="country">
+        <option>India</option>
+        <option>USA</option>
+        <option>UK</option>
+        <option>UAE</option>
+    </select>
+
+        <label>From</label>
+        <input type="text" id="from" placeholder="Mumbai">
+
+        <label>To</label>
+        <input type="text" id="to" placeholder="Pune">
+
+        <label>Date</label>
+        <input type="date" id="date">
+
+        <button onclick="searchBus()">Search Buses</button>
+    </div>
+
+    <script src="bus.js"></script>
+</body>
+
+</html>

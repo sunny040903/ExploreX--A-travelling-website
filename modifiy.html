@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Modify Settings - ExploreX</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 30px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        
+        .selector {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        
+        .form-section {
+            display: none;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            margin: 20px auto;
+        }
+        
+        .form-section h2 {
+            color: #3498db;
+        }
+        
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #555;
+        }
+        
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        
+        button {
+            margin-top: 15px;
+            padding: 10px 15px;
+            background: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Modify Admin Settings</h1>
+
+    <div class="selector">
+        <label for="settingSelect">Choose a category to modify:</label>
+        <select id="settingSelect" onchange="showForm()">
+      <option value="">-- Select --</option>
+      <option value="user">User Management</option>
+      <option value="booking">Booking Controls</option>
+      <option value="payment">Payment Settings</option>
+      <option value="accommodation">Accommodation Settings</option>
+      <option value="travel">Travel Settings</option>
+      <option value="package">Tour Package Settings</option>
+      <option value="analytics">Analytics & Reports</option>
+      <option value="security">Security & System</option>
+      <option value="content">Website Content</option>
+    </select>
+    </div>
+
+    <!-- User Management -->
+    <div id="user" class="form-section">
+        <h2>User Management</h2>
+        <label>Admin Name:</label>
+        <input type="text" placeholder="Enter admin name">
+        <label>Role:</label>
+        <input type="text" placeholder="Enter role (e.g., Super Admin)">
+        <button>Save Changes</button>
+    </div>
+
+    <!-- Booking Controls -->
+    <div id="booking" class="form-section">
+        <h2>Booking Controls</h2>
+        <label>Booking Limit:</label>
+        <input type="number" placeholder="Enter max bookings">
+        <label>Approval Notes:</label>
+        <textarea placeholder="Enter approval/rejection rules"></textarea>
+        <button>Save Changes</button>
+    </div>
+
+    <!-- Payment Settings -->
+    <div id="payment" class="form-section">
+        <h2>Payment Settings</h2>
+        <label>Enable Methods:</label>
+        <input type="text" placeholder="UPI, Credit Card, Net Banking">
+        <label>Refund Policy:</label>
+        <textarea placeholder="Enter refund policy"></textarea>
+        <button>Save Changes</button>
+    </div>
+
+    <!-- Accommodation -->
+    <div id="accommodation" class="form-section">
+        <h2>Accommodation Settings</h2>
+        <label>Property Name:</label>
+        <input type="text" placeholder="Hotel/Motel/Villa">
+        <label>Availability:</label>
+        <input type="text" placeholder="Available/Not Available">
+        <button>Save Changes</button>
+    </div>
+
+    <!-- Travel -->
+    <div id="travel" class="form-section">
+        <h2>Travel Settings</h2>
+        <label>Transport Type:</label>
+        <input type="text" placeholder="Train/Flight/Cab/Bus">
+        <label>Schedule:</label>
+        <textarea placeholder="Enter schedule details"></textarea>
+        <button>Save Changes</button>
+    </div>
+
+    <!-- Tour Packages -->
+    <div id="package" class="form-section">
+        <h2>Tour Package Settings</h2>
+        <label>Package Name:</label>
+        <input type="text" placeholder="Dubai Tour, Goa Carnival">
+        <label>Description:</label>
+        <textarea placeholder="Enter package description"></textarea>
+        <button>Save Changes</button>
+    </div>
+
+    <!-- Analytics -->
+    <div id="analytics" class="form-section">
+        <h2>Analytics & Reports</h2>
+        <label>Report Type:</label>
+        <input type="text" placeholder="Bookings, Payments, Revenue">
+        <button>Generate Report</button>
+    </div>
+
+    <!-- Security -->
+    <div id="security" class="form-section">
+        <h2>Security & System</h2>
+        <label>Authentication:</label>
+        <input type="text" placeholder="2FA, Password Policy">
+        <label>Backup Settings:</label>
+        <textarea placeholder="Enter backup details"></textarea>
+        <button>Save Changes</button>
+    </div>
+
+    <!-- Website Content -->
+    <div id="content" class="form-section">
+        <h2>Website Content</h2>
+        <label>Homepage Banner:</label>
+        <input type="text" placeholder="Banner title">
+        <label>Notification Template:</label>
+        <textarea placeholder="Enter notification text"></textarea>
+        <button>Save Changes</button>
+    </div>
+
+    <script>
+        function showForm() {
+            const sections = document.querySelectorAll('.form-section');
+            sections.forEach(sec => sec.style.display = 'none');
+            const selected = document.getElementById('settingSelect').value;
+            if (selected) {
+                document.getElementById(selected).style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>

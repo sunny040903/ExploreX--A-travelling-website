@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel AI Assistant</title>
+    <link rel="stylesheet" href="voice.css">
+    <link rel="icon" type="image/png" href="ExploreX.png" />
+    <link rel="icon" type="image/png" href="LogoX.png" />
+</head>
+
+<body>
+
+    <body>
+
+        <!-- Background Image -->
+        <div class="bg-image"></div>
+        <div class="overlay"></div>
+
+        <!-- Chat Window -->
+        <div class="chat-window">
+
+            <div class="header">
+                <div class="avatar">🌌</div>
+                <div>
+                    <h2 class="ai-title">Travel AI</h2>
+                    <span class="status">Online • EXPO.AI</span>
+                </div>
+            </div>
+
+            <div id="chatBox" class="chat-box"></div>
+
+            <div class="controls">
+                <input type="text" id="userInput" placeholder="Ask about destinations, hotels, visas...">
+                <button class="send" onclick="sendMessage()">➤</button>
+                <button class="mic" onclick="startListening()">🎤</button>
+            </div>
+
+        </div>
+
+        <script src="voice.js"></script>
+    </body>
+
+
+</body>
+
+</html>

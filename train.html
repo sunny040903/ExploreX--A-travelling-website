@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>🌸ExploreX | Train Booking</title>
+    <link rel="stylesheet" href="train.css">
+    <link rel="icon" type="image/png" href="LogoX.png" />
+</head>
+
+<body>
+
+    <header class="navbar">
+        <h1>Explorex</h1>
+        <nav>
+            <a href="flight.html">Flights</a>
+            <a href="train.html">Trains</a>
+            <a href="bus.html">Buses</a>
+            <a href="hotel.html">Hotels</a>
+        </nav>
+    </header>
+
+
+    <section class="container">
+        <h2>Train Ticket Booking</h2>
+        <form id="trainForm">
+
+            <div class="row">
+                <div class="field">
+                    <label>Passenger Name</label>
+                    <input type="text" id="name" required>
+                </div>
+
+                <div class="field">
+                    <label>Mobile Number</label>
+                    <input type="text" id="mobile" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label>From Station</label>
+                    <input list="stationsList" id="from" required>
+                </div>
+
+                <div class="field">
+                    <label>To Station</label>
+                    <input list="stationsList" id="to" required>
+                </div>
+            </div>
+
+            <datalist id="stationsList"></datalist>
+
+            <div class="row">
+                <div class="field">
+                    <label>Journey Date</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="field">
+                    <label>Class</label>
+                    <select id="class">
+          <option>Sleeper</option>
+          <option>3A</option>
+          <option>2A</option>
+          <option>1A</option>
+        </select>
+                </div>
+                <div class="field">
+                    <label>Seats</label>
+                    <input type="number" id="seats" min="1" required>
+                </div>
+            </div>
+
+            <button type="submit">Proceed to OTP</button>
+        </form>
+    </section>
+
+    <script>
+        function generatePassengers() {
+            const count = document.getElementById("passengers").value;
+            const container = document.getElementById("passengerDetails");
+            container.innerHTML = "";
+
+            for (let i = 1; i <= count; i++) {
+                container.innerHTML += `
+        <div class="row">
+            <div class="field">
+                <label>Passenger ${i} Name</label>
+                <input type="text" id="pname${i}" required>
+            </div>
+            <div class="field">
+                <label>Age</label>
+                <input type="number" id="page${i}" required>
+            </div>
+            <div class="field">
+                <label>Gender</label>
+                <select id="pgender${i}">
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+            </div>
+        </div>`;
+            }
+        }
+    </script>
+
+    <!-- OTP SECTION -->
+    <section class="container hidden" id="otpSection">
+        <h2>OTP Verification</h2>
+        <p class="otp-info">OTP sent to your mobile number</p>
+        <input type="text" id="otpInput" placeholder="Enter OTP">
+        <button onclick="verifyOTP()">Verify OTP</button>
+        <p id="otpMsg"></p>
+    </section>
+
+    <!-- TICKET -->
+    <section class="container hidden" id="ticketSection">
+        <h2>Train Ticket</h2>
+
+        <div id="ticket" class="ticket">
+            <h3>EXPLOREX TRAIN TICKET</h3>
+            <p><b>Passenger:</b> <span id="tName"></span></p>
+            <p><b>Mobile:</b> <span id="tMobile"></span></p>
+            <p><b>Route:</b> <span id="tRoute"></span></p>
+            <p><b>Date:</b> <span id="tDate"></span></p>
+            <p><b>Class:</b> <span id="tClass"></span></p>
+            <p><b>Seats:</b> <span id="tSeats"></span></p>
+            <p><b>Status:</b> CONFIRMED ✅</p>
+        </div>
+
+        <button onclick="printTicket()">Print / Download Ticket</button>
+    </section>
+
+    <footer>
+        <p>© 2025 ExploreX Travel Solutions</p>
+    </footer>
+
+    <script src="train.js"></script>
+</body>
+
+</html>

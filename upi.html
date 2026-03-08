@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ExploreX | UPI Payment</title>
+    <link rel="stylesheet" href="train.css">
+    <link rel="icon" type="image/png" href="LogoX.png" />
+</head>
+
+<body>
+
+    <header class="navbar">
+        <h1>ExploreX</h1>
+    </header>
+
+    <section class="container">
+        <h2>UPI Payment</h2>
+
+        <div id="upiDetails"></div>
+
+        <div class="upi-box">
+            <h3>Scan QR Code</h3>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=plankar@upi" alt="UPI QR Code">
+            <p>OR</p>
+            <h3>Pay using UPI ID</h3>
+            <p class="upi-id">ExploreX@upi</p>
+        </div>
+
+        <button onclick="confirmPayment()">Payment Done</button>
+    </section>
+
+    <footer>
+        <p>© 2025 ExploreX Travel Solutions</p>
+    </footer>
+
+    <script src="upi.js"></script>
+</body>
+
+</html>

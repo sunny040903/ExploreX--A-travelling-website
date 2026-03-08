@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Login</title>
+</head>
+
+<body>
+
+    <h2>Admin Login</h2>
+
+    <input id="email" placeholder="Email"><br><br>
+    <input id="password" type="password" placeholder="Password"><br><br>
+
+    <button onclick="login()">Login</button>
+
+    <script>
+        function login() {
+            fetch("http://127.0.0.1:5000/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email: email.value,
+                        password: password.value
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.token) {
+                        localStorage.setItem("token", data.token);
+
+                        // Decode token to check role
+                        const payload = JSON.parse(atob(data.token.split('.')[1]));
+
+                        if (payload.sub.role === "admin") {
+                            window.location.href = "admin.html";
+                        } else {
+                            alert("Not an Admin!");
+                        }
+
+                    } else {
+                        alert("Login Failed");
+                    }
+                })
+        }
+    </script>
+
+</body>
+
+</html>

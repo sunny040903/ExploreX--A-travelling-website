@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Settings - ExploreX</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 30px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        
+        .settings {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h2 {
+            margin: 0;
+            color: #3498db;
+            font-size: 20px;
+        }
+        
+        .card ul {
+            margin-top: 10px;
+            padding-left: 20px;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .modify-btn {
+            margin-top: 15px;
+            padding: 10px;
+            background: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-align: center;
+        }
+        
+        .modify-btn:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Admin Dashboard Settings</h1>
+
+    <div class="settings">
+        <div class="card">
+            <h2>User Management</h2>
+            <ul>
+                <li>Add/Remove Admins</li>
+                <li>Assign Roles & Permissions</li>
+                <li>Manage Customer Accounts</li>
+            </ul>
+            <button class="modify-btn" onclick="location.href='modifiy.html'">Modify</button>
+        </div>
+
+        <div class="card">
+            <h2>Booking Controls</h2>
+            <ul>
+                <li>Approve/Reject Bookings</li>
+                <li>Modify or Cancel Reservations</li>
+                <li>Set Booking Limits</li>
+            </ul>
+            <button class="modify-btn" onclick="location.href='modifiy.html'">Modify</button>
+        </div>
+
+        <div class="card">
+            <h2>Payment Settings</h2>
+            <ul>
+                <li>Configure Payment Methods</li>
+                <li>Track Completed vs Pending</li>
+                <li>Refund & Cancellation Policies</li>
+            </ul>
+            <button class="modify-btn" onclick="location.href='modifiy.html'">Modify</button>
+        </div>
+
+        <div class="card">
+            <h2>Accommodation Settings</h2>
+            <ul>
+                <li>Manage Hotel/Motel/Villa Listings</li>
+                <li>Update Contact & Availability</li>
+                <li>Add Offers & Discounts</li>
+            </ul>
+            <button class="modify-btn" onclick="location.href='modifiy.html'">Modify</button>
+        </div>
+
+        <div class="card">
+            <h2>Travel Settings</h2>
+            <ul>
+                <li>Train/Flight/Cab/Bus Schedules</li>
+                <li>Pricing Adjustments</li>
+                <li>Seat Allocation</li>
+            </ul>
+            <button class="modify-btn" onclick="location.href='modifiy.html'">Modify</button>
+        </div>
+
+        <div class="card">
+            <h2>Tour Package Settings</h2>
+            <ul>
+                <li>Create/Edit Package Details</li>
+                <li>Set Pricing Tiers</li>
+                <li>Manage Availability</li>
+            </ul>
+            <button class="modify-btn" onclick="location.href='modifiy.html'">Modify</button>
+        </div>
+
+        <div class="card">
+            <h2>Analytics & Reports</h2>
+            <ul>
+                <li>Booking Statistics</li>
+                <li>Payment Breakdowns</li>
+                <li>Revenue Tracking</li>
+            </ul>
+            <button class="modify-btn" onclick="location.href='modifiy.html'">Modify</button>
+        </div>
+
+        <div class="card">
+            <h2>Security & System</h2>
+            <ul>
+                <li>Login Authentication</li>
+                <li>Data Backup & Recovery</li>
+                <li>Audit Logs</li>
+            </ul>
+            <button class="modify-btn" onclick="location.href='modifiy.html'">Modify</button>
+        </div>
+
+        <div class="card">
+            <h2>Website Content</h2>
+            <ul>
+                <li>Homepage Banners</li>
+                <li>FAQ & Helpdesk Updates</li>
+                <li>Notification Templates</li>
+            </ul>
+            <button class="modify-btn" onclick="location.href='modifiy  .html'">Modify</button>
+        </div>
+    </div>
+</body>
+
+</html>

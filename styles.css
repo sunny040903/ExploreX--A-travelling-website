@@ -1,0 +1,472 @@
+/* General Reset */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background: url('blog_3.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Header */
+
+header {
+    background: rgba(0, 53, 128, 0.85);
+    color: white;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: cover;
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    color: rgb(255, 196, 0);
+    font-size: 28px;
+}
+
+nav {
+    display: flex;
+    gap: 16px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+
+/* Main Section */
+
+main {
+    flex: 1;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-box {
+    text-align: center;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+.login-box h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 32px;
+    color: #003366;
+    margin-bottom: 10px;
+}
+
+.login-box p {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.divider-text {
+    margin: 20px 0 10px;
+    font-size: 15px;
+    color: #555;
+}
+
+
+/* Footer */
+
+footer {
+    background-color: #f5f5f5;
+    padding: 16px;
+    text-align: center;
+    color: #333;
+}
+
+.social-icons button {
+    padding: 10px 20px;
+    background-color: #ff6f00;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+/* Sidebar button container */
+
+.plan-btn-container {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    width: calc(100% - 40px);
+    text-align: center;
+}
+
+.hotel-btn-container {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    width: calc(100% - 40px);
+    text-align: center;
+}
+
+
+/* Button styling */
+
+.plan-btn {
+    display: block;
+    padding: 12px 0;
+    background: #fe0000;
+    /* Navy blue */
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.hotel-btn {
+    display: block;
+    padding: 12px 0;
+    background: #fe0000;
+    /* Navy blue */
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+
+/* Hover effect */
+
+.plan-btn:hover {
+    background: #fe0000;
+    transform: translateY(-2px);
+}
+
+.sidebar {
+    position: relative;
+    background: #fa0202;
+    height: 100vh;
+}
+
+.popular-tours {
+    padding: 40px;
+    background: #f8f3ee;
+}
+
+.popular-tours h2 {
+    text-align: center;
+    color: #b22222;
+    margin-bottom: 30px;
+}
+
+.tour-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.tour-card {
+    position: relative;
+    height: 260px;
+    border-radius: 15px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.4s;
+}
+
+.tour-card:hover {
+    transform: scale(1.05);
+}
+
+.tour-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+    color: #fff;
+}
+
+.overlay h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.overlay p {
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+body {
+    font-family: Arial;
+    background: linear-gradient(to right, #2193b0, #6dd5ed);
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    margin-top: 10px;
+    display: block;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px;
+    width: 100%;
+    background: #2193b0;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #176d87;
+}
+
+.hidden {
+    display: none;
+}
+
+#receipt {
+    background: #f4f4f4;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+body {
+    font-family: Arial;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    margin: 0;
+    padding: 0;
+}
+
+.chat-container {
+    width: 90%;
+    max-width: 700px;
+    margin: 30px auto;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.chat-box {
+    height: 350px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.user {
+    text-align: right;
+    margin: 5px;
+    color: blue;
+}
+
+.bot {
+    text-align: left;
+    margin: 5px;
+    color: green;
+}
+
+.controls {
+    display: flex;
+    gap: 5px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+}
+
+button {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.admin-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #222;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.admin-btn:hover {
+    background-color: #000;
+}
+
+
+/* Top Travel Navbar */
+
+.top-travel-navbar {
+    position: fixed;
+    top: 0;
+    left: 230px;
+    /* same as sidebar width */
+    width: calc(100% - 230px);
+    background: #002b5c;
+    padding: 10px 20px;
+    z-index: 1200;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.top-travel-navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.top-travel-navbar a:hover {
+    color: #ffcc00;
+    transform: scale(1.05);
+}
+
+
+/* Mobile Responsive */
+
+@media(max-width:991px) {
+    .top-travel-navbar {
+        left: 0;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+.slider {
+    margin-top: 0px;
+}
+
+body {
+    margin: 400;
+    font-family: Arial;
+    background: #f4efe6;
+}
+
+.topbar {
+    background: #0a2996;
+    color: white;
+    padding: 15px;
+    justify-content: space-between;
+}
+
+.layout {
+    display: flex;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    margin: 15px 0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sidebar a:hover .content {
+    padding: 30px;
+    flex: 1;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}

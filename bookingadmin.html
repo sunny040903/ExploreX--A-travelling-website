@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Analytics - Admin</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 30px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .text-summary {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .chart-container {
+            width: 60%;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Booking Analytics Dashboard</h1>
+
+    <!-- Accommodation Section -->
+    <div class="section">
+        <h2>Accommodation Bookings</h2>
+        <div class="text-summary">
+            Hotels account for 10% of total accommodation bookings, while motels make up 23%. Villas contribute 12%, and resorts add another 15%. Together, these categories represent the full accommodation segment of our platform, showing strong demand across diverse
+            lodging options.
+        </div>
+        <div class="chart-container">
+            <canvas id="accommodationChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Travel Section -->
+    <div class="section">
+        <h2>Travel Bookings</h2>
+        <div class="text-summary">
+            Train bookings represent 8% of travel reservations, flights contribute 14%, cabs stand at 6%, buses at 5%, and cruise ships at 3%. This distribution highlights the varied preferences of travelers, with flights and trains leading the segment.
+        </div>
+        <div class="chart-container">
+            <canvas id="travelChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Tour Packages Section -->
+    <div class="section">
+        <h2>Tour Packages</h2>
+        <div class="text-summary">
+            Tour packages alone account for 4% of total bookings. While smaller in share compared to accommodation and travel, this category reflects bundled experiences that continue to attract customers seeking convenience and value.
+        </div>
+        <div class="chart-container">
+            <canvas id="tourChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Accommodation Chart
+        new Chart(document.getElementById('accommodationChart'), {
+            type: 'pie',
+            data: {
+                labels: ['Hotels', 'Motels', 'Villas', 'Resorts'],
+                datasets: [{
+                    data: [10, 23, 12, 15],
+                    backgroundColor: ['#3498db', '#2ecc71', '#f1c40f', '#e67e22']
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'right'
+                    }
+                }
+            }
+        });
+
+        // Travel Chart
+        new Chart(document.getElementById('travelChart'), {
+            type: 'pie',
+            data: {
+                labels: ['Trains', 'Flights', 'Cabs', 'Buses', 'Cruise Ships'],
+                datasets: [{
+                    data: [8, 14, 6, 5, 3],
+                    backgroundColor: ['#9b59b6', '#1abc9c', '#e74c3c', '#34495e', '#95a5a6']
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'right'
+                    }
+                }
+            }
+        });
+
+        // Tour Packages Chart
+        new Chart(document.getElementById('tourChart'), {
+            type: 'pie',
+            data: {
+                labels: ['Tour Packages'],
+                datasets: [{
+                    data: [4],
+                    backgroundColor: ['#16a085']
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'right'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

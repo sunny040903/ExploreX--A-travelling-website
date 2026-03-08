@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ExploreX | Ticket</title>
+    <link rel="stylesheet" href="train.css">
+    <link rel="icon" type="image/png" href="LogoX.png" />
+</head>
+
+<body>
+
+    <header class="navbar">
+        <h1>Expolrex</h1>
+    </header>
+
+    <section class="container">
+        <h2>Confirmed Ticket</h2>
+
+        <div class="ticket" id="ticketBox"></div>
+
+        <button onclick="window.print()">Print / Download Ticket</button>
+    </section>
+
+    <footer>
+        <p>© 2025 ExploreX Travel Solutions</p>
+    </footer>
+
+    <script>
+        const t = JSON.parse(localStorage.getItem("confirmedTicket"));
+        const box = document.getElementById("ticketBox");
+
+        if (!t) {
+            alert("No ticket found!");
+            window.location.href = "train.html";
+        }
+
+        box.innerHTML = `
+    <h3>ExploreX TICKET</h3>
+    <p><b>Passenger:</b> ${t.name}</p>
+    <p><b>Mobile:</b> ${t.mobile}</p>
+    <p><b>Route:</b> ${t.from} → ${t.to}</p>
+    <p><b>Date:</b> ${t.date}</p>
+    <p><b>Class:</b> ${t.class}</p>
+    <p><b>Seats:</b> ${t.seats}</p>
+    <p><b>Time:</b> 13 : 00 pm</p>
+    <p><b>Seat NO:</b> 3A</p>
+    
+    <p><b>Status:</b> CONFIRMED ✅</p>
+`;
+    </script>
+
+    let passengerHTML = ""; ticket.passengerList.forEach((p, i) => { passengerHTML += `
+    <p>${i+1}. ${p.name} | ${p.gender} | Age ${p.age} | Seat: ${ticket.berths[i]}</p>`; }); box.innerHTML = `
+    <h3>PLANKAR TRAIN TICKET</h3>
+    <p><b>Train:</b> ${ticket.trainName} (${ticket.trainNo})</p>
+    <p><b>From:</b> ${ticket.from}</p>
+    <p><b>To:</b> ${ticket.to}</p>
+    <p><b>Journey Date:</b> ${ticket.date}</p>
+    <p><b>Departure:</b> ${ticket.depTime}</p>
+    <p><b>Arrival:</b> ${ticket.arrTime}</p>
+    <p><b>Destination Date:</b> ${ticket.destDate}</p>
+    <hr> ${passengerHTML}
+    <hr>
+    <p><b>Class:</b> ${ticket.class}</p>
+    <p><b>Total Fare:</b> ₹${ticket.fare}</p>
+    <p><b>Status:</b> CONFIRMED ✅</p>
+    <p><b>Transaction ID:</b> ${ticket.transactionId}</p>
+    `;
+
+</body>
+
+</html>

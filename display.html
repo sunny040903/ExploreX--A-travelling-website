@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Confirmation - ExploreX</title>
+    <link rel="icon" type="image/png" href="LogoX.png" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .ticket {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            text-align: left;
+        }
+        
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            background: #3498db;
+            color: #fff;
+        }
+        
+        button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🎉 Booking Successful!</h1>
+    <div class="ticket" id="ticketContent">
+        <h2>Your Hotel Ticket</h2>
+        <p><strong>Hotel Name:</strong> <span id="ticketHotel"></span></p>
+        <p><strong>Location:</strong> <span id="ticketLocation"></span></p>
+        <p><strong>Stay Type:</strong> <span id="ticketStayType"></span></p>
+        <p><strong>Check-In:</strong> <span id="ticketCheckin"></span></p>
+        <p><strong>Check-Out:</strong> <span id="ticketCheckout"></span></p>
+        <p><strong>Guests:</strong> <span id="ticketGuests"></span></p>
+        <p><strong>Price:</strong> <span id="ticketPrice"></span></p>
+        <p>Thank you for booking with ExploreX. Have a great trip!</p>
+    </div>
+
+    <!-- Download Options -->
+    <button onclick="window.print()">🖨 Print / Save as PDF</button>
+    <button onclick="downloadTicket()">⬇️ Download Ticket</button>
+
+    <script>
+        window.onload = function() {
+            document.getElementById("ticketHotel").innerText = localStorage.getItem("bookingHotel");
+            document.getElementById("ticketLocation").innerText = localStorage.getItem("bookingLocation");
+            document.getElementById("ticketStayType").innerText = localStorage.getItem("bookingStayType");
+            document.getElementById("ticketCheckin").innerText = localStorage.getItem("bookingCheckin");
+            document.getElementById("ticketCheckout").innerText = localStorage.getItem("bookingCheckout");
+            document.getElementById("ticketGuests").innerText = localStorage.getItem("bookingGuests");
+            document.getElementById("ticketPrice").innerText = localStorage.getItem("bookingPrice");
+        };
+
+        function downloadTicket() {
+            const hotel = localStorage.getItem("bookingHotel");
+            const location = localStorage.getItem("bookingLocation");
+            const stayType = localStorage.getItem("bookingStayType");
+            const checkin = localStorage.getItem("bookingCheckin");
+            const checkout = localStorage.getItem("bookingCheckout");
+            const guests = localStorage.getItem("bookingGuests");
+            const price = localStorage.getItem("bookingPrice");
+
+            const ticketText = `
+ExploreX Hotel Ticket
+----------------------
+Hotel Name: ${hotel}
+Location: ${location}
+Stay Type: ${stayType}
+Check-In: ${checkin}
+Check-Out: ${checkout}
+Guests: ${guests}
+Price: ${price}
+
+Thank you for booking with ExploreX. Have a great trip!
+`;
+
+            const blob = new Blob([ticketText], {
+                type: "text/plain"
+            });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "ExploreX_Ticket.txt";
+            link.click();
+        }
+    </script>
+</body>
+
+</html>

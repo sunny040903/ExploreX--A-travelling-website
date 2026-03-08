@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel List - Admin View</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        .hotel-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 10px auto;
+            max-width: 600px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .hotel-info {
+            font-size: 16px;
+        }
+        
+        .hotel-name {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .contact {
+            color: #555;
+        }
+        
+        .GetConnect-btn {
+            background: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .GetConnect-btn:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hotel List (Admin)</h1>
+    <a href="Connect.html">
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Hotel Sunshine</div>
+                <div class="contact">Contact: +91 9876543210</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Ocean View Resort</div>
+                <div class="contact">Contact: +91 9123456780</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Mountain Retreat</div>
+                <div class="contact">Contact: +91 9988776655</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Taj hotel</div>
+                <div class="contact">Contact: +91 1800111225</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Hotel City Star (India)</div>
+                <div class="contact">Contact: +91 9871630631</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">City Hotel Mumbai (India)</div>
+                <div class="contact">Contact: +91 22 22666666</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Hotel Three Star (India)</div>
+                <div class="contact">Contact: +91 9320129095</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Vividus Hotel (India)</div>
+                <div class="contact">Contact: +91 80 40443636</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Mayfair Lagoon (India)</div>
+                <div class="contact">Contact: +91 674 6660101</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Burj Al Arab (Dubai)</div>
+                <div class="contact">Contact: +971 4 3017777</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Atlantis The Palm (Dubai)</div>
+                <div class="contact">Contact: +971 4 4262000</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Jumeirah Beach Hotel (Dubai)</div>
+                <div class="contact">Contact: +971 4 3480000</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">The Plaza Hotel (USA)</div>
+                <div class="contact">Contact: +1 212 7593000</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Bellagio Hotel (USA)</div>
+                <div class="contact">Contact: +1 702 6937111</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">The Beverly Hills Hotel (USA)</div>
+                <div class="contact">Contact: +1 310 2762251</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Waldorf Astoria (USA)</div>
+                <div class="contact">Contact: +1 212 3553000</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">The Ritz London (UK)</div>
+                <div class="contact">Contact: +44 20 74932000</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">The Savoy Hotel (UK)</div>
+                <div class="contact">Contact: +44 20 78364343</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">The Langham London (UK)</div>
+                <div class="contact">Contact: +44 20 76368000</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Ritz Paris (France)</div>
+                <div class="contact">Contact: +33 1 43163030</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Le Meurice (France)</div>
+                <div class="contact">Contact: +33 1 44581010</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Shangri-La Paris (France)</div>
+                <div class="contact">Contact: +33 1 53672000</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Marina Bay Sands (Singapore)</div>
+                <div class="contact">Contact: +65 66888888</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Raffles Singapore</div>
+                <div class="contact">Contact: +65 63371886</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Mandarin Oriental Bangkok</div>
+                <div class="contact">Contact: +66 2 6599000</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">The Peninsula Bangkok</div>
+                <div class="contact">Contact: +66 2 0202888</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Park Hyatt Tokyo</div>
+                <div class="contact">Contact: +81 3 53221234</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Ritz Carlton Tokyo</div>
+                <div class="contact">Contact: +81 3 34238000</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Park Hyatt Sydney</div>
+                <div class="contact">Contact: +61 2 92561234</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Shangri-La Sydney</div>
+                <div class="contact">Contact: +61 2 92503488</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Fairmont Banff Springs (Canada)</div>
+                <div class="contact">Contact: +1 403 7622211</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Fairmont Royal York (Canada)</div>
+                <div class="contact">Contact: +1 416 3682511</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">La Palm Royal Beach Hotel (Ghana)</div>
+                <div class="contact">Contact: +233 302215100</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-info">
+                <div class="hotel-name">Mövenpick Ambassador Hotel (Ghana)</div>
+                <div class="contact">Contact: +233 204333265</div>
+            </div>
+            <button class="GetConnect-btn">GetConnect</button>
+        </div>
+    </a>
